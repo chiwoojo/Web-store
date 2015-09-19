@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASN</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Amazonian Shopping Network</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <select name="products-choice" id="dropdown-bar" class="center-block">
+    <option value="please-select-msg">Please select a Category :)</option>
+  </select>
+
+
+  
+
+  <div id="content" class="container">
+
+    <!-- HTML below is commented out because all of that will be created using Javascript/jQuery events and actions -->
+
+    <!-- <div class="row">
+      <header class="text-center">
+        <h1>Market<h1>
+      </header> 
+    </div>
+    <nav></nav>
+    <div class="row">
+    
+      <div id="TheAdventuresFinn" class="book product col-xs-6">
+        <div id="book1">
+          <div class="picture"><img class="img-responsive center-block" alt=""></div>
+          <div class="name text-center"><h2></h2></div>
+          <div class="category text-center"></div>
+          <div class="price text-center"></div>
+          <div class="sellingpoint text-center"></div>
+        </div>
+      </div>
+      
+      <div id="EastofEden" class="book product col-xs-6">
+        <div id="book2">
+          <div class="picture"><img class="img-responsive center-block" alt=""></div>
+          <div class="name text-center"><h2></h2></div>
+          <div class="category text-center"></div>
+          <div class="price text-center"></div>
+          <div class="sellingpoint text-center"></div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+       <div ="row">
+    
+      <div id="billevans" class="album product col-xs-6">
+        <div id="album1">
+          <div class="picture"><img class="img-responsive center-block" alt=""></div>
+          <div class="name text-center"><h2></h2></div>
+          <div class="category text-center"></div>
+          <div class="price text-center"></div>
+          <div class="sellingpoint text-center"></div>
+        </div>
+      </div>
+      
+      <div id="scarter" class="album product col-xs-6">
+        <div id="album2">
+          <div class="picture"><img class="img-responsive center-block" alt=""></div>
+          <div class="name text-center"><h2></h2></div>
+          <div class="category text-center"></div>
+          <div class="price text-center"></div>
+          <div class="sellingpoint text-center">
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+    </div> -->
+
+
+    <!-- <div class="row">
+      <footer class="text-right">contact us:  email:</footer>
+    </div> -->
+
+  </div>
+  
+  
+  
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
+  <script>
+
+    /*
+      This is where information is stored for each product. Subsequent function calls are all based on this data set
+    */
+    products = { 
+      books : [{
+        id: "book1",
+        container_id: "1984",
+        media_type: "book",
+        name: '1984',
+        category: 'Classics', 
+        price: 4.99,
+        picture: 'http://ecx.images-amazon.com/images/I/71DgPQAEnFL.jpg',
+        selling_points: 'Written in 1948, 1984 was George Orwell’s chilling prophecy about the future. And while 1984 has come and gone, Orwell’s narrative is timelier than ever. 1984 presents a startling and haunting vision of the world, so powerful that it is completely convincing from start to finish. No one can deny the power of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions—a legacy that seems only to grow with the passage of time.'
+      }, {
+        id: "book2",
+        container_id: "atlas-shrugged",
+        media_type: "book",
+        name: 'Atlas Shrugged', 
+        category: 'Philosophy',
+        price: 5.95,
+        picture: 'http://ecx.images-amazon.com/images/I/41R0o4dwS9L.jpg',
+        selling_points: 'This is a terrific condensation of Ayn Rand\'s masterpiece on the morality of capitalism, and it glows with author affection. Dr. Andrew Bernstein is sometimes called an "Ayn Rand evangelist," but he prefers to describe his activities using a more sober expression, "rational proselytization." His Cliffs distillation accurately captures the gist of Atlas Shrugged, the plot and the philosophy, and his post-chapter analyses offer the sort of illumination that comes only from deep knowledge of, and unbridled enthusiasm for, the subject matter. Atlas Shrugged is, for many, a difficult book to get into; I know people who say they\'ve attempted to start it five or six times. Given that Atlas is vastly richer than the Cliffs Notes version, my recommendation is for the reader to explore the Cliffs Notes and Atlas Shrugged simultaneously, chapter by chapter, first reading a condensed chapter and then the real thing.'
+      }, {
+        id: "book3",
+        container_id: "grisham-bleachers",
+        media_type: "book",
+        name: 'Bleachers', 
+        category: 'Literature',
+        price: 8.85,
+        picture: 'http://ecx.images-amazon.com/images/I/61%2BQ%2Bepq5WL.jpg',
+        selling_points: 'High school all-American Neely Crenshaw was probably the best quarterback ever to play for the legendary Messina Spartans. Fifteen years have gone by since those glory days, and Neely has come home to Messina to bury Coach Eddie Rake, the man who molded the Spartans into an unbeatable football dynasty. Now, as Coach Rake’s “boys” sit in the bleachers waiting for the dimming field lights to signal his passing, they replay the old games, relive the old glories, and try to decide once and for all whether they love Eddie Rake—or hate him. For Neely Crenshaw, a man who must finally forgive his coach—and himself—before he can get on with life, the stakes are especially high.'
+      }, {
+        id: "book4",
+        container_id: "schwarznegger-total-recall",
+        media_type: "book",
+        name: 'Total Recall', 
+        category: 'Autobiography',
+        price: 8.85,
+        picture: 'http://ecx.images-amazon.com/images/I/81NOij3cRvL.jpg',
+        selling_points: 'Choosing the title of his autobiography must have been easy for Schwarzenegger. Finding a reason for writing it, especially at this particular moment, must have been a lot harder. As everyone (at least everyone who reads the gossip sites) knows, the body builder, movie star, and governor fathered a son with the housekeeper. As Arnold makes clear, he wants nothing more than to reunite with his wife, Maria Shriver. So why go there? Oh, well, Arnold has always been a guy who sets a goal and meets it, so maybe this will work out, too. His strong will was forged in a harsh Austrian environment, where parents and teachers delivered body blows, and dentists didn’t use anesthesia. At 10, Arnold knew he would one day come to America, and, by 21, he was a Mr. Universe living large in L.A. His movie career pushed him into superstardom, and when he decided to run for governor, he won that, too (though he left office with an approval rating of 28 percent.) This is a dishy bio on lots of fronts, dipping as it does into the worlds of body building, politics, movies, and the Kennedys. Arnold seems to have a modicum of self-awareness: for instance, he knows he’s secretive (you think?), but his last chapter, “Arnold’s Rules,” really reveals him: don’t overthink (no problem); stay hungry; change always takes big balls. A guilty pleasure for those who just can’t say no. --Ilene Cooper --This text refers to an out of print or unavailable edition of this title.'
+      }], //end of book array
+
+      albums : [{
+        id: "album1",
+        container_id: "tycho-dive",
+        media_type: "mp3",
+        name: 'Dive',
+        category: 'Electro-ambience',
+        price: 11.99,
+        picture: 'http://ecx.images-amazon.com/images/I/31QARxZlRXL.jpg',
+        selling_points: 'Scott Hansen, better known as TYCHO & as graphic artist ISO50, spent nearly a decade since his last effort before dropping \"Dive\" on an unsuspecting public. It pays tribute to Tycho\'s prismatic past but spends most of it\'s time pointing to the project/"s not-too-distant future. All versions come in slightly different variations of art!'
+      }, {
+        id: "album2",
+        container_id: "daughter-if-you-leave",
+        media_type: "mp3",
+        name: 'If you leave',
+        category: 'Rock',
+        price: 9.99,
+        picture: 'https://lh4.googleusercontent.com/-qA8nqqR7rMs/AAAAAAAAAAI/AAAAAAAAAAA/MIfrdKgFrvw/s0-c-k-no-ns/photo.jpg',
+        selling_points: 'Daughter formed in 2010, originally intended to showcase the solo work of singer Elena Tonra, until she was joined by guitarist Igor Haefeli and drummer Remi Aguilella. They released the Demos EP which started word of mouth on the band, Daughter self-released their debut EP, His Young Heart, on April 20, 2011. Later that same year, they released another EP, The Wild Youth, on October 2 through artist-led Communion Records. The latter EP earned praise from British website For Folk’s Sake who described Daughter as "one of the most unique sounds in the pop landscape today." BBC Radio 1 DJ Huw Stephens also invited them to perform a Maida Vale Session for his show. In 2012 the band were signed to 4AD and began work on their debut album.'
+      }, {
+        id: "album3",
+        container_id: "alt-j-an-awesome",
+        media_type: "mp3",
+        name: 'An Awesome Wave',
+        category: 'Rock',
+        price: 7.99,
+        picture: 'http://ecx.images-amazon.com/images/I/81OUY5lkoCL._SL1097_.jpg',
+        selling_points: 'Alt-J are a four piece that met while attending Leeds University in the UK. They signed to Infectious Records (Temper Trap, Local Natives) for Europe and the rest of the world before signing with Canvasback/ Atlantic for North America.'
+      }, {
+        id: "album4",
+        container_id: "hendrix-south-saturn-delta",
+        media_type: "mp3",
+        name: 'South Saturn Delta',
+        category: 'Rock',
+        price: 8.95,
+        picture: 'http://ecx.images-amazon.com/images/I/812BbwW9LFL._SL1500_.jpg',
+        selling_points: 'South Saturn Delta is a posthumous compilation album by American rock musician Jimi Hendrix. It was compiled by the Hendrix estate that consists of material such as demo tapes, unfinished takes and alternate mixes, previously released material, most of which Hendrix had been working on prior to his death in 1970.'
+      }] //end of album array
+    }
+
+    /*
+      This is a rudimentary version that I use to select each product to create onto the HTML page. It is not automatic and you need to call EVERY product to have it show on the page. Very inefficient. 
+    */
+    var add_to_page = function(obj) {
+      $(obj.id +' .picture img').attr('src', obj.picture);
+      $(obj.id +' .name h2').text(obj["name"]);
+      $(obj.id +' .category').text(obj.category);
+      $(obj.id +' .price').text(obj.price);
+      $(obj.id +' .sellingpoint').text(obj.selling_points);
+    } 
+
+    /*
+      Below function creates HTML elements and put them in the right location to show all the products that were called by this function. 
+
+      @param obj : each product object. (i.e. book1 or album1)
+      @param row : the row each item should get prepended to. I set it so that you have 2 items in each row. 
+    */
+    var append_to_page = function(obj, row) {
+      $('#row-'+row).prepend( '<div id="'+obj['container_id']+'" class="'+obj['media_type'] + ' product col-sm-5 col-xs-12 col-sm-offset-1">' );
+      //prepend 
+
+      $('#'+obj["container_id"]).append('<div id="'+obj["id"]+'">');
+      //append div (i.e. <div id='book1'>)
+
+      $('#'+obj["id"]).append($('<div class="picture">').html( $('<img class="img-responsive center-block" alt="" style="max-height: 300px">').attr('src',obj["picture"]) ) );
+      //append the picture
+
+      $('#'+obj["id"]).append($('<div class="name text-center">').html($('<h2>').text(obj["name"])));
+      $('#'+obj["id"]).append($('<div class="category text-center"></div>').text(obj["category"]));
+      $('#'+obj["id"]).append($('<div class="price text-center"></div>').text(obj["price"]));
+      $('#'+obj["id"]).append($('<div class="sellingpoint text-center"></div>').text(obj["selling_points"]));
+    };
+
+
+    /** -- this below code works with premade 'a' elements. But I have refactored the code so I'm creating dropdown elements automatically based on keys in the products object--
+
+    $('#nav-books').click(function() {
+      $('#content').empty();
+      for(var i=0; i<products["books"].length; i++) {
+        if (i===0 || i%2===0) {
+          $('#content').append('<div class="row" id="row-'+i/2+'">');
+        }
+        append_to_page(products["books"][i],i/2);  
+      }
+    });
+
+    $('#nav-albums').click(function() {
+      $('#content').empty();
+      for(var i=0; i<products["albums"].length; i++) {
+        append_to_page(products["albums"][i]);  
+      }
+    });
+
+    $('#nav-all').click(function() {
+      $('#content').empty();
+      for (var key in products) {
+        for(var i=0; i<products[key].length; i++) {
+          append_to_page(products[key][i]);  
+        }
+      }
+    });
+    
+    */
+
+
+    //creates drop down options based on 'products' object
+    var create_dropdown = function() {
+      for(var key in products) {
+        $('#dropdown-bar').append($('<option>').text(key));
+      }
+      $('#dropdown-bar').append($('<option>').text('all'));
+    }
+    
+    //call function to create drop down options
+    create_dropdown();
+
+    /*
+      Listens for changes in the dropdown box, and creates HTML elements accordingly.
+    */
+    $('#dropdown-bar').change(function() {
+
+        var row_number = 0;
+        //I wanted to create a row for every 2 products, so that they can be arranged nicely with Bootstrap. 
+        var count = 0;
+        //used for counting items inside of object 'products'
+
+        //if you select 'all' from the dropdown bar, recreate everything
+        if ($('select option:selected').text()==="all") {
+          $('#content').empty();
+          for (var key in products) {
+ 
+            for(var i=0; i<products[key].length; i++) {
+              if (count===0 || count%2===0) {
+                row_number = count/2;
+                $('#content').append('<div class="row" id="row-'+row_number+'">');
+              }
+              append_to_page(products[key][i], row_number);  
+              count++;
+            }
+          }
+        } else {
+        //else create HTML elements based on the dropdown selection
+          $('#content').empty();
+          for(var i=0; i<products[$("select option:selected").text()].length; i++) {
+            if (i===0 || i%2===0) {
+              row_number = i/2;
+              $('#content').append('<div class="row" id="row-'+row_number+'">');
+            }
+            append_to_page(products[$("select option:selected").text()][i],row_number);  
+        }
+    }});
+
+
+  </script> 
+</body>
+</html>
